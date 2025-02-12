@@ -25,9 +25,9 @@ pip install einops==0.7.0 numpy==1.24.4 pandas==1.2.4 torch==2.0.1 torchaudio==2
    ```
 2. Phase I training：
    ```bash
-   python p1.train.py
+   python p1_train.py
    ```
 3. Phase II training：
    ```bash
-   python p2.train.py
+   python p2_train.py
    ```
