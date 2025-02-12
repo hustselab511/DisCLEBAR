@@ -6,9 +6,9 @@ To ensure the code runs correctly, please make sure your environment meets the f
 - `einops==0.7.0`
 - `numpy==1.24.4`
 - `pandas==1.2.4`
-- `torch==2.0.1+cu117`
-- `torchaudio==2.0.2+cu117`
-- `torchvision==0.15.2+cu117`
+- `torch==2.0.1`
+- `torchaudio==2.0.2`
+- `torchvision==0.15.2`
 - `tqdm==4.66.5`
 
 ### Installing Dependencies
@@ -16,7 +16,7 @@ To ensure the code runs correctly, please make sure your environment meets the f
 You can install all dependencies using the following command:
 
 ```bash
-pip install einops==0.7.0 numpy==1.24.4 pandas==1.2.4 torch==2.0.1+cu117 torchaudio==2.0.2+cu117 torchvision==0.15.2+cu117 tqdm==4.66.5
+pip install einops==0.7.0 numpy==1.24.4 pandas==1.2.4 torch==2.0.1 torchaudio==2.0.2 torchvision==0.15.2 tqdm==4.66.5
 ```
 ## Quick start
 1. Teacher model training：
