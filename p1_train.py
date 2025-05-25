@@ -11,7 +11,7 @@ from torch.optim.lr_scheduler import StepLR
 from torch.utils.data import Dataset
 
 from datasets import RSNATrainDataset, RSNAValidDataset
-from utils import L1_Regular, attn_kl_loss, get_phase_I_args
+from utils import L2_Regular, attn_kl_loss, get_phase_I_args
 
 from student_model_p1 import get_student_p1
 from unets import get_Attn_Unet
@@ -52,7 +52,7 @@ def train_fn(train_loader, loss_fn, optimizer):
 
         loss = loss_fn(y_pred, label)
         train_attn_loss = attn_kl_loss(t1, t2, t3, t4, s1, s2, s3, s4)
-        penalty_loss = L1_Regular(student_model, 1e-5)
+        penalty_loss = L2_Regular(student_model, 1e-4)
         total_loss = loss + penalty_loss + args.attn_loss_ratio * train_attn_loss
         total_loss.backward()
 
