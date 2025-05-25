@@ -12,7 +12,7 @@ from torch.optim.lr_scheduler import StepLR
 from torch.utils.data import Dataset
 
 from datasets import RSNATrainDataset, RSNAValidDataset
-from utils import L1_Regular, get_phase_II_args
+from utils import L2_Regular, get_phase_II_args
 
 from student_model_p2 import get_student_p2
 from wscl import WSCL
@@ -56,7 +56,7 @@ def train_fn(train_loader, loss_fn, wscl_fn, optimizer):
         wscl_loss_0 = wscl_fn(cls_token0, img_gt, gender)
         wscl_loss_1 = wscl_fn(cls_token1, img_gt, gender)
 
-        penalty_loss = L1_Regular(contrast_model, 1e-5)
+        penalty_loss = L2_Regular(contrast_model, 1e-4)
         total_loss = loss + penalty_loss
         total_loss = total_loss + wscl_loss_0.squeeze(0) * args.wscl_loss_0_ratio
         total_loss = total_loss + wscl_loss_1.squeeze(0) * args.wscl_loss_1_ratio
