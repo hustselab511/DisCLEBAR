@@ -3,10 +3,10 @@ import torch.nn.functional as F
 import argparse
 
 
-def L1_Regular(net, ratio):
+def L2_Regular(net, ratio):
     loss = 0.
     for param in net.boneage_regression.parameters():
-        loss += torch.sum(torch.abs(param))
+        loss += torch.sum(torch.pow(param, 2)) 
     return ratio * loss
 
 
