@@ -84,9 +84,11 @@ class Student_Model_P1(nn.Module):
             nn.Linear(fc_in_features + ge_ch, 1024),
             nn.BatchNorm1d(1024),
             nn.ReLU(),
+            nn.Dropout(0.2),
             nn.Linear(1024, 512),
             nn.BatchNorm1d(512),
             nn.ReLU(),
+            nn.Dropout(0.2),
             nn.Linear(512, 1)
         )
 
